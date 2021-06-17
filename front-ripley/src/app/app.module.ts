@@ -5,6 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NuevoDestinatarioComponent } from './nuevo-destinatario/nuevo-destinatario.component';
 import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material';
+
+const MaterialComponents =[
+  MatToolbarModule
+]
 
 @NgModule({
   declarations: [
@@ -14,8 +20,11 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    [MatToolbarModule]
   ],
+  exports: [MaterialComponents],
   providers: [],
   bootstrap: [AppComponent]
 })

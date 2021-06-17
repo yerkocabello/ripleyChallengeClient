@@ -4,7 +4,8 @@ import {NuevoDestinatarioComponent} from "./nuevo-destinatario/nuevo-destinatari
 
 
 const routes: Routes = [
-  { path: 'muevo-destinatario', component: NuevoDestinatarioComponent }
+  { path: 'muevo-destinatario', component: NuevoDestinatarioComponent },
+  { path: '', component: NuevoDestinatarioComponent }
 ];
 
 @NgModule({
