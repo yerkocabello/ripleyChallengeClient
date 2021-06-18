@@ -1,19 +1,22 @@
+import {Banco} from "./banco";
+import {Cuenta} from "./cuenta";
+
 export class Destinatario{
-  constructor(
-    private rut: String,
-    private nombre: String,
-    private correo: String,
-    private telefono: Number,
-    private banco: {
-      id: String,
-      descripcion: String
-    },
-    private numerCuenta: String,
-    private cuenta: {
-      id: Number,
-      descripcion: String
-    }
-  ){
+  public rut: String;
+  public nombre: String;
+  public correo: String;
+  public telefono: Number;
+  public banco: Banco;
+  public numeroCuenta: String;
+  public cuenta: Cuenta
+  constructor(rut, nombre, correo, telefono, banco, numeroCuenta, cuenta){
+    this.rut = rut;
+    this.nombre = nombre;
+    this.correo = correo;
+    this.telefono = telefono;
+    this.banco = banco;
+    this.numeroCuenta = numeroCuenta;
+    this.cuenta = cuenta;
 
   }
 }

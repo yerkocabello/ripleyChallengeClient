@@ -1,43 +1,53 @@
-<mat-toolbar color="primary">
-  <!-- Navbar brand -->
-  <!--<mdb-navbar-brand><a class="navbar-brand" href="#">Mi banco - Nueva Transferencia</a></mdb-navbar-brand>-->
-
-  <!-- Collapsible content -->
-  <!--<links>-->
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
-      </li>
-
-      <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          Basic dropdown<span class="caret"></span></a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Nuevo Destinatario</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Transferir</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Historial</a>
-          <div class="divider dropdown-divider"></div>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
-        </div>
-      </li>
-
-    </ul>
-    <!-- Links -->
-
-    <!-- Search form -->
-    <form class="form-inline waves-light" mdbWavesEffect>
-      <div class="md-form my-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      </div>
-    </form>
- <!-- </links>-->
-</mat-toolbar>
+<h1>Nuevo Destinatario</h1>
+<div>
+<div>
+<form [formGroup]="formDestinatario" (ngSubmit)="craarDestinatario()">
+  <table>
+    <tr>
+      <td>RUT</td>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <td><input type="text" formControlName="rut"></td>
+      <td><input type="text" formControlName="nombre"></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+      <td>Correo</td>
+      <td>Telefono</td>
+    </tr>
+    <tr>
+      <td><input type="text" formControlName="correo"></td>
+      <td><input type="text" formControlName="telefono"></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+      <td>Banco</td>
+      <td>Tipo de cuenta</td>
+    </tr>
+    <tr>
+      <td><mat-select  formControlName="banco">
+        <mat-option *ngFor="let banco of bancos" [value]="banco.id">{{banco.name}}</mat-option>
+      </mat-select>
+      </td>
+      <td><mat-select  formControlName="tipoCuenta">
+        <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.id">{{cuenta.descripcion}}</mat-option>
+      </mat-select>
+      </td>
+      <br>
+    </tr>
+    <tr><br></tr>
+    <tr>
+      <td>Nº De Cuenta</td>
+    </tr>
+    <tr>
+      <td><input type="text" formControlName="numeroCuenta"></td>
+    </tr>
+    <tr><br></tr>
+    <tr>
+      <td><button mat-button type="submit">Crear</button></td>
+    </tr>
+  </table>
+</form>
+</div>
+</div>

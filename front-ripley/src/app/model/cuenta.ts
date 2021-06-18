@@ -1,8 +1,6 @@
-export class Cuenta {
-  constructor(
-    private id: Number,
-    private descripcion: String
-  ){
-  }
+export interface Cuenta {
+  id: Number,
+  descripcion: String
+
 }
 

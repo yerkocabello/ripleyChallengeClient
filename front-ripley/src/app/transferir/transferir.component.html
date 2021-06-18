@@ -1,0 +1,40 @@
+<h1>Transferir</h1>
+<label>Buscar destinatario</label>
+<br>
+<!--<form [formGroup]="formTransferencia" (ngSubmit)="transferir()">-->
+<input type="search" [(ngModel)]="nombreDestinatario">
+
+<div *ngIf="(destinatarios | filter:nombreDestinatario).length <1">
+  No encontrado
+</div>
+
+<div *ngIf="(destinatarios | filter: nombreDestinatario).length > 0">
+  <h2>Detalle del destinatario</h2>
+  <table>
+    <tr>
+      <td><span>Nombre</span></td>
+      <td>{{destinatario.nombre}}</td>
+    </tr>
+    <tr>
+      <td><span>Correo</span></td>
+      <td>{{destinatario.correo}}</td><br>
+    </tr>
+    <tr>
+      <td><span>Banco</span></td>
+      <td>{{destinatario.banco.name}}</td><br>
+    </tr>
+    <tr>
+      <td><span>Tipo de cuenta</span></td>
+      <td>{{destinatario.cuenta.descripcion}}</td><br>
+    </tr>
+    <br>
+    <tr>
+      <td>Monto</td>
+      <td><input type="text" [(ngModel)]="monto"></td>
+    </tr>
+    <br>
+    <tr>
+      <td><button mat-button type="submit" (click)="transferir()">Transferir</button></td>
+    </tr>
+  </table>
+</div>
