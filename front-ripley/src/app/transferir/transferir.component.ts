@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Destinatario} from "../model/destinatario";
 import {DestinatarioService} from "../services/destinatario.service";
-import {FormControl, FormGroup} from "@angular/forms";
 import {Transferencia} from "../model/transferencia";
 import {TransferenciaService} from "../services/transferencia.service";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transferir',
