@@ -2,18 +2,21 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Cuenta} from "../model/cuenta";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CuentaService {
   apiUrl: String;
-  token:String = '09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611';
-
+  token:String = environment.token;
+  baseUrl:String = environment.baseUrl;
+  /*
+  local config
+  baseUrl: String = '/api';
+*/
 
   constructor(private http: HttpClient) {
-    //this.apiUrl = '/app/';
-
   }
 
   getCuentas(): Observable<any> {
@@ -21,6 +24,6 @@ export class CuentaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
     })
-    return this.http.get<Cuenta[]>('/api/cuenta/get-all', { headers: headers });
+    return this.http.get<Cuenta[]>(this.baseUrl + '/cuenta/get-all', { headers: headers });
   }
 }
