@@ -4,10 +4,13 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 node_modules/
-
+front-ripley/dist/
+front-ripley/.firebase(
 # Other files and folders
 .settings/
-
+.idea
+front-ripley/firebase.json
+front-ripley/.firebaserc
 # Executables
 *.swf
 *.air
